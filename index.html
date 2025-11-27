@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppositisms</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="flash-overlay" class="flash-overlay hidden"></div>
+    <div class="app-container">
+        <header>
+            <h1>Oppositisms</h1>
+        </header>
+
+        <div class="layout-wrapper">
+            <main id="game-area">
+                <!-- Start Screen -->
+                <div id="start-screen" class="screen active">
+                    <p class="instruction">Guess the word from its Oppositism!<br>Use Hints if you get stuck (-2
+                        pts).<br>Passes cost 1 point.</p>
+
+                    <div class="time-selection">
+                        <p class="label">Select Round Duration:</p>
+                        <div class="time-options">
+                            <button class="time-btn" data-time="60">60s</button>
+                            <button class="time-btn active" data-time="120">120s</button>
+                            <button class="time-btn" data-time="180">180s</button>
+                        </div>
+                        <div class="flash-config">
+                            <label for="flash-duration">Success Flash (ms):</label>
+                            <input type="number" id="flash-duration" value="800" min="100" step="100">
+                        </div>
+                    </div>
+
+                    <button id="start-btn" class="primary-btn">Start Game</button>
+                </div>
+
+                <!-- Gameplay Screen -->
+                <div id="game-screen" class="screen hidden">
+
+
+                    <div class="card-container">
+                        <div class="card" id="current-card">
+                            <div class="card-header-badges">
+                                <span class="category-badge" id="category-badge">General</span>
+                            </div>
+                            <div class="points-circle" id="potential-points">Pts: +3</div>
+                            <div class="word-display">
+                                <h2 id="question-text">Loading...</h2>
+                            </div>
+                            <div id="helper-text" class="helper-list hidden"></div>
+                        </div>
+                    </div>
+
+                    <div class="game-controls-area">
+                        <div class="interaction-area">
+                            <div class="hint-controls">
+                                <button id="free-clue-btn" class="secondary-btn small clue-btn">Free Letter (0
+                                    pts)</button>
+                                <button id="buy-letter-btn" class="secondary-btn small">Buy Letter (-1 pt)</button>
+                                <button id="buy-helper-btn" class="secondary-btn small">Buy Helper (-1 pt)</button>
+                            </div>
+
+                            <p id="hint-text" class="hint hidden"></p>
+
+                            <div class="input-area" id="input-area">
+                                <input type="text" id="answer-input" placeholder="Type the original word..."
+                                    autocomplete="off">
+                                <button id="submit-btn" class="action-btn">Submit</button>
+                                <button id="pass-btn" class="secondary-btn small pass-btn">Pass (-1)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Over Screen -->
+                <!-- Game Over Screen -->
+                <div id="end-screen" class="screen hidden">
+                    <h2 id="final-score-display">Final Score: <span id="final-score">0</span></h2>
+
+                    <div class="end-stats">
+                        <p>Free Letters: <span id="free-letters-used">0</span></p>
+                        <p>Letters Bought: <span id="letters-bought">0</span></p>
+                        <p>Helpers Used: <span id="helpers-used">0</span></p>
+                    </div>
+
+                    <div class="game-log-container">
+                        <h3>Game Log</h3>
+                        <div id="game-log" class="game-log"></div>
+                    </div>
+
+                    <div class="end-actions">
+                        <button id="restart-btn" class="primary-btn">Play Again</button>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="game-stats">
+                    <div class="stat-box score-box">
+                        <div class="score-line">
+                            <span class="label">Score:</span>
+                            <span class="value" id="score">0</span>
+                        </div>
+                        <div class="clues-line">
+                            <span class="label">Clues Left:</span>
+                            <span class="value" id="clues-remaining">10</span>
+                        </div>
+                    </div>
+                    <div class="stat-box timer-box">
+                        <div class="circular-timer">
+                            <svg class="timer-svg" viewBox="0 0 100 100">
+                                <circle class="timer-ring-bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="timer-ring-progress" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <span class="value" id="timer">120</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

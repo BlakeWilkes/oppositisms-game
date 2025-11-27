@@ -1,0 +1,5 @@
+.DS_Store
+oppositisms_game.zip
+deploy/
+__pycache__/
+*.pyc
