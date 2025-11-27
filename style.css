@@ -40,7 +40,6 @@ body {
 }
 
 /* New Header Styles */
-/* New Header Styles */
 .main-header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -48,8 +47,8 @@ body {
     align-items: center;
     padding: 0.75rem 1rem;
     /* More breathing room */
-    padding-top: max(0.75rem, env(safe-area-inset-top));
-    /* Safe area support */
+    padding-top: calc(1rem + env(safe-area-inset-top));
+    /* Safe area support + extra spacing */
     margin-bottom: 1rem;
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
