@@ -108,8 +108,12 @@ h1 {
 }
 
 .score-line .label {
-    display: none;
-    /* Keep hidden as requested */
+    display: inline;
+    /* Show label */
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .clues-line {
@@ -127,13 +131,15 @@ h1 {
 .timer-box {
     padding: 0;
     margin: 0;
+    display: flex;
+    align-items: center;
+    /* Ensure vertical center */
 }
 
 .circular-timer {
-    width: 45px;
-    /* Fixed small size */
-    height: 45px;
-    /* Fixed small size */
+    width: 32px;
+    /* Even smaller to match title height */
+    height: 32px;
     position: relative;
     /* Ensure relative positioning for absolute child */
 }
@@ -146,7 +152,8 @@ h1 {
 }
 
 .circular-timer .value {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    /* Smaller font for smaller timer */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -154,6 +161,7 @@ h1 {
     /* Perfect center */
     margin: 0;
     /* Remove any default margins */
+    font-weight: 700;
 }
 
 /* ... removed sidebar styles ... */
