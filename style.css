@@ -47,8 +47,8 @@ body {
     align-items: center;
     padding: 0.75rem 1rem;
     /* More breathing room */
-    padding-top: calc(1rem + env(safe-area-inset-top));
-    /* Safe area support + extra spacing */
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+    /* INCREASED padding to push everything down */
     margin-bottom: 1rem;
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
@@ -144,6 +144,8 @@ h1 {
     /* Even smaller to match title height */
     height: 32px;
     position: relative;
+    top: 4px;
+    /* Manually nudge down as requested */
     /* Ensure relative positioning for absolute child */
 }
 
