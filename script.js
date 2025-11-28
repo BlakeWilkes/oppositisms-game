@@ -696,7 +696,7 @@ class Game {
         this.pointsBadgeEl.textContent = `Pts: +${this.currentPoints}`;
 
         this.answerInput.value = '';
-        this.answerInput.focus();
+        // Removed auto-focus to prevent mobile keyboard popup
 
         // Update Buttons
         this.freeClueBtn.disabled = this.freeCluesRemaining <= 0;

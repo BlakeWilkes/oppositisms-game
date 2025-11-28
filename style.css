@@ -51,9 +51,9 @@ body {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 0.75rem 1rem;
-    padding-top: calc(0.5rem + env(safe-area-inset-top));
-    /* Safe area padding */
+    padding: 0.25rem 1rem;
+    padding-top: calc(0.25rem + env(safe-area-inset-top));
+    /* Minimal safe area padding */
     background: rgba(15, 23, 42, 0.95);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 100;
@@ -81,8 +81,8 @@ body {
 
 h1 {
     font-weight: 700;
-    font-size: 1.4rem;
-    /* Slightly larger than before but still compact */
+    font-size: 1.1rem;
+    /* Smaller title */
     background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
     background-clip: text;
