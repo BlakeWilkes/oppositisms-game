@@ -943,6 +943,69 @@ class Game {
         this.timerEl.textContent = this.timeLeft;
         this.cluesBadgeEl.textContent = `${this.freeCluesRemaining}`;
     }
+    initKeyboard() {
+        const rows = [
+            ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+            ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+            ['ENTER', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '⌫']
+        ];
+
+        this.keyboardContainer.innerHTML = '';
+
+        rows.forEach(row => {
+            const rowEl = document.createElement('div');
+            rowEl.className = 'keyboard-row';
+
+            row.forEach(key => {
+                const keyEl = document.createElement('button');
+                keyEl.className = 'key';
+                keyEl.textContent = key;
+                keyEl.dataset.key = key;
+
+                if (key === 'ENTER') {
+                    keyEl.classList.add('wide-key', 'enter-key');
+                } else if (key === '⌫') {
+                    keyEl.classList.add('wide-key', 'backspace-key');
+                }
+
+                keyEl.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent focus loss
+                    this.handleVirtualKey(key);
+                });
+
+                rowEl.appendChild(keyEl);
+            });
+
+            this.keyboardContainer.appendChild(rowEl);
+        });
+    }
+
+    handleVirtualKey(key) {
+        if (!this.isGameActive) return;
+
+        if (key === 'ENTER') {
+            this.checkAnswer();
+        } else if (key === '⌫') {
+            this.input.value = this.input.value.slice(0, -1);
+        } else {
+            this.input.value += key;
+        }
+    }
+
+    handlePhysicalKey(e) {
+        if (!this.isGameActive) return;
+
+        // Allow browser shortcuts (refresh, etc)
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+        if (e.key === 'Enter') {
+            this.checkAnswer();
+        } else if (e.key === 'Backspace') {
+            this.input.value = this.input.value.slice(0, -1);
+        } else if (/^[a-zA-Z]$/.test(e.key)) {
+            this.input.value += e.key.toLowerCase();
+        }
+    }
 }
 
 // Initialize game
