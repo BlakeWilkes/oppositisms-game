@@ -580,11 +580,15 @@ class Game {
         this.freeClueBtn.addEventListener('click', () => this.useFreeClue());
 
         this.submitBtn.addEventListener('click', () => this.checkAnswer());
-        this.answerInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.checkAnswer();
-        });
+        // Removed auto-focus to prevent mobile keyboard popup
+        // this.answerInput.addEventListener('keypress', (e) => {
+        //     if (e.key === 'Enter') this.checkAnswer();
+        // });
 
         this.passBtn.addEventListener('click', () => this.passCard());
+
+        // Physical Keyboard Listener
+        document.addEventListener('keydown', (e) => this.handlePhysicalKey(e));
 
         // this.revealAnswerBtn.addEventListener('click', () => {
         //     const card = this.cards[this.currentCardIndex];
