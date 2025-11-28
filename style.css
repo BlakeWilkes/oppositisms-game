@@ -141,6 +141,113 @@ h1 {
     font-weight: 600;
 }
 
+/* Game Card - Flat Layout */
+.game-card {
+    background: transparent;
+    /* Remove card bg */
+    border: none;
+    /* Remove border */
+    box-shadow: none;
+    /* Remove shadow */
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Question Word */
+.word-display {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Area */
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#answer-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Hide Submit Button (Use Enter) */
+#submit-btn {
+    display: none;
+}
+
+/* Pass Button - Minimal Text Link */
+#pass-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    padding: 0.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/* Hint Controls - Compact Toolbar */
+.hint-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.hint-btn,
+.helper-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    /* Circular */
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: all 0.2s;
+}
+
+.hint-btn .text,
+.helper-btn .text {
+    display: none;
+    /* Hide text labels */
+}
+
+.hint-btn .icon,
+.helper-btn .icon {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.hint-btn:active,
+.helper-btn:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0.95);
+}
+
 /* Tiny Timer */
 .timer-box {
     padding: 0;
@@ -293,6 +400,15 @@ h1 {
     animation: pulse-red-glow 0.5s infinite ease-in-out;
 }
 
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* Ensure vertical centering */
+    height: 100%;
+    /* Fill height */
+}
+
 /* Circular Timer */
 .timer-box {
     position: relative;
@@ -305,11 +421,13 @@ h1 {
 
 .circular-timer {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 32px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Remove manual top nudge, rely on flexbox */
+    /* top: 4px; */
 }
 
 .timer-svg {
